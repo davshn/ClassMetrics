@@ -1,7 +1,6 @@
 'use client';
 
-import { Pie, PieChart, ResponsiveContainer, Sector } from 'recharts';
-import type { PieSectorDataItem } from 'recharts/types/polar/Pie';
+import { Pie, PieChart, ResponsiveContainer, Cell } from 'recharts';
 
 import {
   Card,
@@ -66,7 +65,7 @@ export default function StudyTimeAnalysis({
       <CardHeader>
         <CardTitle>Study Time Analysis</CardTitle>
         <CardDescription>
-          Distribution of your study hours.
+          Distribution of your study hours per course.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -84,23 +83,14 @@ export default function StudyTimeAnalysis({
                 data={studyData}
                 dataKey="hours"
                 nameKey="subject"
-                innerRadius={60}
-                strokeWidth={5}
-                activeIndex={0}
-                activeShape={({
-                  outerRadius = 0,
-                  ...props
-                }: PieSectorDataItem) => (
-                  <g>
-                    <Sector {...props} outerRadius={outerRadius + 5} />
-                    <Sector
-                      {...props}
-                      outerRadius={outerRadius}
-                      innerRadius={outerRadius - 5}
-                    />
-                  </g>
-                )}
-              />
+                innerRadius={50}
+                outerRadius={80}
+                strokeWidth={2}
+              >
+                {studyData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={entry.fill} />
+                ))}
+              </Pie>
             </PieChart>
           </ResponsiveContainer>
         </ChartContainer>

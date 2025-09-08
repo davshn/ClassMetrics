@@ -1,4 +1,5 @@
 import { Bell, Search } from 'lucide-react';
+import Link from 'next/link';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
@@ -52,9 +53,9 @@ export default function Header({ student }: { student: any }) {
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" className="relative h-10 w-10 rounded-full">
               <Avatar className="h-10 w-10">
-                <AvatarImage src="https://i.pravatar.cc/150?u=a042581f4e29026704d" alt={student.name} />
+                <AvatarImage src="https://i.pravatar.cc/150?u=a042581f4e29026704d" alt={student?.name} />
                 <AvatarFallback>
-                  {getInitials(student.name)}
+                  {getInitials(student?.name)}
                 </AvatarFallback>
               </Avatar>
             </Button>
@@ -62,8 +63,12 @@ export default function Header({ student }: { student: any }) {
           <DropdownMenuContent align="end" className="w-56">
             <DropdownMenuLabel>My Account</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Profile</DropdownMenuItem>
-            <DropdownMenuItem>Settings</DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link href="/profile">Profile</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <Link href="/settings">Settings</Link>
+            </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>Log Out</DropdownMenuItem>
           </DropdownMenuContent>
