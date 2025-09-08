@@ -29,7 +29,7 @@ import {
 export default function Home() {
   const totalTasks = tasksData.length;
   const completedTasks = tasksData.filter(t => t.status === 'completed').length;
-  const completionRate = Math.round((completedTasks / totalTasks) * 100);
+  const completionRate = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0;
 
   return (
     <div className="min-h-screen w-full bg-background text-foreground">
@@ -71,7 +71,7 @@ export default function Home() {
             <PerformanceChart data={performanceData} />
           </div>
           <div>
-            <ActiveCourses courses={coursesData} />
+            <ActiveCourses courses={coursesData.filter(c => c.completion < 100)} />
           </div>
         </div>
 
@@ -79,7 +79,7 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2">
             <TaskList
-              initialTasks={tasksData}
+              initialTasks={tasksData.filter(t => t.status === 'pending')}
               studentPerformance={studentData}
             />
           </div>

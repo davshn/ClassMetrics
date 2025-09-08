@@ -31,24 +31,46 @@ export default function Header({ student }: { student: any }) {
       .join('');
   };
 
+  const notifications = [
+    { id: 1, text: 'Your essay for Universal History has been graded.' },
+    { id: 2, text: 'New assignment added for Advanced Calculus.' },
+    { id: 3, text: 'Reminder: Lab practice for Organic Chemistry is due tomorrow.' },
+  ]
+
   return (
     <header className="flex h-16 items-center justify-between border-b bg-card px-4 md:px-8">
       <div className="flex items-center gap-4">
+       <Link href="/">
         <h1 className="text-xl font-bold tracking-tight text-foreground">
-          EduCentral
+            EduCentral
         </h1>
+       </Link>
       </div>
       <div className="flex-1 max-w-md ml-8">
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-          <Input placeholder="Search courses, tasks..." className="pl-9" />
-        </div>
       </div>
       <div className="flex items-center gap-4">
-        <Button variant="ghost" size="icon" className="rounded-full">
-          <Bell className="h-5 w-5" />
-          <span className="sr-only">Notifications</span>
-        </Button>
+        <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="icon" className="rounded-full">
+                    <Bell className="h-5 w-5" />
+                    <span className="sr-only">Notifications</span>
+                </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-80">
+                <DropdownMenuLabel>Notifications</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                {notifications.map(notification => (
+                    <DropdownMenuItem key={notification.id} className="flex items-start p-2">
+                       <div className='text-sm'>{notification.text}</div>
+                    </DropdownMenuItem>
+                ))}
+                 <DropdownMenuSeparator />
+                 <DropdownMenuItem className='justify-center text-sm text-primary hover:text-primary'>
+                    <Link href="#">View all notifications</Link>
+                 </DropdownMenuItem>
+            </DropdownMenuContent>
+        </DropdownMenu>
+
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" className="relative h-10 w-10 rounded-full">

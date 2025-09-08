@@ -13,6 +13,8 @@ export const studentData: PrioritizeTasksInput["studentPerformance"] & { name: s
     'Advanced Calculus': 92,
     'Organic Chemistry': 85,
     'Spanish Literature': 95,
+    'Intro to Psychology': 88,
+    'World Geography': 92
   },
   timeSpentStudying: 15,
 };
@@ -41,6 +43,18 @@ export const coursesData = [
     name: 'Spanish Literature',
     icon: 'Globe',
     completion: 95,
+  },
+  {
+    id: '5',
+    name: 'Intro to Psychology',
+    icon: 'BrainCog',
+    completion: 100,
+  },
+  {
+    id: '6',
+    name: 'World Geography',
+    icon: 'Globe',
+    completion: 100,
   },
 ];
 
