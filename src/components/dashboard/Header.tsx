@@ -42,7 +42,7 @@ export default function Header({ student }: { student: any }) {
       <div className="flex items-center gap-4">
        <Link href="/">
         <h1 className="text-xl font-bold tracking-tight text-foreground">
-            EduCentral
+        ClassMetrics
         </h1>
        </Link>
       </div>

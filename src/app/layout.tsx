@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'EduCentral Dashboard',
+  title: 'ClassMetrics Dashboard',
   description: 'Your educational control center.',
 };
 

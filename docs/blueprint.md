@@ -1,4 +1,4 @@
-# **App Name**: EduCentral Dashboard
+# **App Name**: ClassMetrics Dashboard
 
 ## Core Features:
 
