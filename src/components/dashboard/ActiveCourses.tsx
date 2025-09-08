@@ -42,8 +42,8 @@ export default function ActiveCourses({ courses }: ActiveCoursesProps) {
   return (
     <Card className="shadow-sm hover:shadow-md transition-shadow duration-300 h-full">
       <CardHeader>
-        <CardTitle>Cursos Activos</CardTitle>
-        <CardDescription>Tu progreso en los cursos actuales.</CardDescription>
+        <CardTitle>Active Courses</CardTitle>
+        <CardDescription>Your progress in current courses.</CardDescription>
       </CardHeader>
       <CardContent>
         <ul className="space-y-4">

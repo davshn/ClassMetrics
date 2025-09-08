@@ -29,7 +29,7 @@ type StudyTimeAnalysisProps = {
 
 const chartConfig = {
   hours: {
-    label: 'Horas',
+    label: 'Hours',
   },
 };
 
@@ -64,9 +64,9 @@ export default function StudyTimeAnalysis({
   return (
     <Card className="shadow-sm hover:shadow-md transition-shadow duration-300">
       <CardHeader>
-        <CardTitle>Análisis de Tiempo de Estudio</CardTitle>
+        <CardTitle>Study Time Analysis</CardTitle>
         <CardDescription>
-          Distribución de tus horas de estudio.
+          Distribution of your study hours.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -108,7 +108,7 @@ export default function StudyTimeAnalysis({
           className="flex flex-col items-center justify-center -mt-24"
         >
           <span className="text-3xl font-bold">{totalHours}h</span>
-          <span className="text-sm text-muted-foreground">Total esta semana</span>
+          <span className="text-sm text-muted-foreground">Total this week</span>
         </div>
       </CardContent>
     </Card>

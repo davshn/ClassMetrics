@@ -40,7 +40,7 @@ export default function ProgressMetricCard({
             className={cn('text-xs text-muted-foreground flex items-center', trendColor)}
           >
             <TrendIcon className="h-4 w-4 mr-1" />
-            {trendValue} desde el mes pasado
+            {trendValue} from last month
           </p>
         )}
       </CardContent>

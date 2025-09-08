@@ -38,28 +38,28 @@ export default function Home() {
         {/* Row 1: Quick Metrics */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <ProgressMetricCard
-            title="Tasa de finalización"
+            title="Completion Rate"
             value={`${completionRate}%`}
             icon={CheckCircle}
             trend="up"
             trendValue="5.2%"
           />
           <ProgressMetricCard
-            title="Calificación promedio"
+            title="Average Grade"
             value={`${studentData.averageGrade}`}
             icon={GraduationCap}
             trend="down"
             trendValue="1.8%"
           />
           <ProgressMetricCard
-            title="Horas de estudio (sem)"
+            title="Study Hours (wk)"
             value={`${studentData.timeSpentStudying}`}
             icon={Clock}
             trend="up"
             trendValue="12%"
           />
           <ProgressMetricCard
-            title="Tareas pendientes"
+            title="Pending Tasks"
             value={`${tasksData.filter(t => t.status !== 'completed').length}`}
             icon={ListTodo}
           />

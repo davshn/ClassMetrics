@@ -1,4 +1,5 @@
 import { BookOpen, GraduationCap, Upload } from 'lucide-react';
+import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -13,21 +14,27 @@ export default function QuickAccess() {
   return (
     <Card className="shadow-sm hover:shadow-md transition-shadow duration-300">
       <CardHeader>
-        <CardTitle>Acceso Rápido</CardTitle>
-        <CardDescription>Tus acciones más frecuentes.</CardDescription>
+        <CardTitle>Quick Access</CardTitle>
+        <CardDescription>Your most frequent actions.</CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col space-y-2">
-        <Button>
-          <BookOpen className="mr-2 h-4 w-4" />
-          Acceder a Clases
+        <Button asChild>
+          <Link href="/courses">
+            <BookOpen className="mr-2 h-4 w-4" />
+            Access Classes
+          </Link>
         </Button>
-        <Button variant="secondary">
-          <Upload className="mr-2 h-4 w-4" />
-          Entregar Tareas
+        <Button variant="secondary" asChild>
+          <Link href="/assignments">
+            <Upload className="mr-2 h-4 w-4" />
+            Submit Assignments
+          </Link>
         </Button>
-        <Button variant="outline">
-          <GraduationCap className="mr-2 h-4 w-4" />
-          Ver Calificaciones
+        <Button variant="outline" asChild>
+          <Link href="/grades">
+            <GraduationCap className="mr-2 h-4 w-4" />
+            View Grades
+          </Link>
         </Button>
       </CardContent>
     </Card>

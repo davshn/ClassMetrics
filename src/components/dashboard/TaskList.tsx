@@ -22,7 +22,7 @@ import {
 import { Skeleton } from '@/components/ui/skeleton';
 import { cn } from '@/lib/utils';
 import { formatDistanceToNow } from 'date-fns';
-import { es } from 'date-fns/locale';
+import { enUS } from 'date-fns/locale';
 import { Filter } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 
@@ -35,19 +35,19 @@ const PriorityBadge = ({ score }: { score: number }) => {
   if (score > 80) {
     return (
       <Badge variant="destructive" className="bg-red-500 text-white">
-        Alta
+        High
       </Badge>
     );
   }
   if (score > 50) {
     return (
       <Badge className="bg-yellow-500 text-white hover:bg-yellow-600">
-        Media
+        Medium
       </Badge>
     );
   }
   return (
-    <Badge className="bg-green-500 text-white hover:bg-green-600">Baja</Badge>
+    <Badge className="bg-green-500 text-white hover:bg-green-600">Low</Badge>
   );
 };
 
@@ -93,21 +93,21 @@ export default function TaskList({
       <CardHeader>
         <div className="flex items-center justify-between">
           <div>
-            <CardTitle>Tareas Pendientes</CardTitle>
+            <CardTitle>Pending Tasks</CardTitle>
             <CardDescription>
-              Tus tareas priorizadas por la IA.
+              Your tasks prioritized by AI.
             </CardDescription>
           </div>
           <div className="flex items-center gap-2">
             <Filter className="h-4 w-4 text-muted-foreground" />
             <Select value={filter} onValueChange={setFilter}>
               <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Filtrar por curso" />
+                <SelectValue placeholder="Filter by course" />
               </SelectTrigger>
               <SelectContent>
                 {courses.map(course => (
                   <SelectItem key={course} value={course}>
-                    {course === 'all' ? 'Todos los cursos' : course}
+                    {course === 'all' ? 'All courses' : course}
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -137,10 +137,10 @@ export default function TaskList({
                 <div className="flex-1">
                   <p className="font-semibold">{task.name}</p>
                   <p className="text-sm text-muted-foreground">
-                    {task.course} &middot; Vence{' '}
+                    {task.course} &middot; Due{' '}
                     {formatDistanceToNow(new Date(task.deadline), {
                       addSuffix: true,
-                      locale: es,
+                      locale: enUS,
                     })}
                   </p>
                 </div>
@@ -151,8 +151,8 @@ export default function TaskList({
             ))
           ) : (
             <div className="text-center py-8 text-muted-foreground">
-              <p>¡Felicidades!</p>
-              <p>No hay tareas para este curso.</p>
+              <p>Congratulations!</p>
+              <p>No tasks for this course.</p>
             </div>
           )}
         </div>

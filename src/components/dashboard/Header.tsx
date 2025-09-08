@@ -23,7 +23,7 @@ type HeaderProps = {
 
 export default function Header({ student }: { student: any }) {
   const getInitials = (name: string) => {
-    if (!name) return '';
+    if (!name) return '??';
     return name
       .split(' ')
       .map((n: string) => n[0])
@@ -40,13 +40,13 @@ export default function Header({ student }: { student: any }) {
       <div className="flex-1 max-w-md ml-8">
         <div className="relative">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-          <Input placeholder="Buscar cursos, tareas..." className="pl-9" />
+          <Input placeholder="Search courses, tasks..." className="pl-9" />
         </div>
       </div>
       <div className="flex items-center gap-4">
         <Button variant="ghost" size="icon" className="rounded-full">
           <Bell className="h-5 w-5" />
-          <span className="sr-only">Notificaciones</span>
+          <span className="sr-only">Notifications</span>
         </Button>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -60,12 +60,12 @@ export default function Header({ student }: { student: any }) {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-56">
-            <DropdownMenuLabel>Mi Cuenta</DropdownMenuLabel>
+            <DropdownMenuLabel>My Account</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Perfil</DropdownMenuItem>
-            <DropdownMenuItem>Configuración</DropdownMenuItem>
+            <DropdownMenuItem>Profile</DropdownMenuItem>
+            <DropdownMenuItem>Settings</DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Cerrar Sesión</DropdownMenuItem>
+            <DropdownMenuItem>Log Out</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>

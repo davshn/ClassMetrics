@@ -36,8 +36,8 @@ export default function RecentAchievements({
   return (
     <Card className="shadow-sm hover:shadow-md transition-shadow duration-300">
       <CardHeader>
-        <CardTitle>Logros Recientes</CardTitle>
-        <CardDescription>¡Buen trabajo! Sigue así.</CardDescription>
+        <CardTitle>Recent Achievements</CardTitle>
+        <CardDescription>Great work! Keep it up.</CardDescription>
       </CardHeader>
       <CardContent>
         <ul className="space-y-4">

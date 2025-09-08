@@ -27,7 +27,7 @@ type PerformanceChartProps = {
 
 const chartConfig = {
   performance: {
-    label: 'Rendimiento',
+    label: 'Performance',
     color: 'hsl(var(--primary))',
   },
 };
@@ -36,16 +36,16 @@ export default function PerformanceChart({ data }: PerformanceChartProps) {
   return (
     <Card className="shadow-sm hover:shadow-md transition-shadow duration-300">
       <CardHeader>
-        <CardTitle>Gráficas de Rendimiento</CardTitle>
+        <CardTitle>Performance Charts</CardTitle>
         <CardDescription>
-          Tu rendimiento académico a lo largo del tiempo.
+          Your academic performance over time.
         </CardDescription>
       </CardHeader>
       <CardContent>
         <Tabs defaultValue="weekly">
           <TabsList className="grid w-full grid-cols-2">
-            <TabsTrigger value="weekly">Semanal</TabsTrigger>
-            <TabsTrigger value="monthly">Mensual</TabsTrigger>
+            <TabsTrigger value="weekly">Weekly</TabsTrigger>
+            <TabsTrigger value="monthly">Monthly</TabsTrigger>
           </TabsList>
           <TabsContent value="weekly" className="pt-4">
             <ChartContainer config={chartConfig} className="h-[250px] w-full">
