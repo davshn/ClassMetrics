@@ -16,7 +16,6 @@ import { UploadCloud, File as FileIcon } from 'lucide-react';
 
 const AssignmentSchema = z.object({
   taskId: z.string().min(1, 'Please select a task'),
-  file: z.instanceof(FileList).refine(files => files.length > 0, 'A file is required.'),
 });
 
 type AssignmentFormValues = z.infer<typeof AssignmentSchema>;
@@ -49,7 +48,7 @@ export default function AssignmentsPage() {
     reset();
     setFileName(null);
   };
-  
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
       setFileName(e.target.files[0].name);
