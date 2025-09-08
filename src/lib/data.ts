@@ -1,6 +1,12 @@
 import type { PrioritizeTasksInput } from "@/ai/flows/ai-task-prioritization";
 
-export const studentData: PrioritizeTasksInput["studentPerformance"] = {
+export const studentData: PrioritizeTasksInput["studentPerformance"] & { name: string; avatarUrl: string; studentId: string; email: string, major: string, enrollmentDate: string } = {
+  name: 'Alex Doe',
+  avatarUrl: 'https://i.pravatar.cc/150?u=a042581f4e29026704d',
+  studentId: 'STU-12345',
+  email: 'alex.doe@example.com',
+  major: 'Computer Science',
+  enrollmentDate: '2022-08-20',
   averageGrade: 88,
   courseGrades: {
     'Universal History': 75,
@@ -121,8 +127,8 @@ export const achievementsData = [
 ];
 
 export const studyTimeData = [
-    { subject: 'History', hours: 4, fill: 'var(--color-chart-1)' },
-    { subject: 'Calculus', hours: 6, fill: 'var(--color-chart-2)' },
-    { subject: 'Chemistry', hours: 3, fill: 'var(--color-chart-3)' },
-    { subject: 'Literature', hours: 2, fill: 'var(--color-chart-4)' },
+    { subject: 'History', hours: 4, fill: 'hsl(var(--chart-1))' },
+    { subject: 'Calculus', hours: 6, fill: 'hsl(var(--chart-2))' },
+    { subject: 'Chemistry', hours: 3, fill: 'hsl(var(--chart-3))' },
+    { subject: 'Literature', hours: 2, fill: 'hsl(var(--chart-4))' },
 ];

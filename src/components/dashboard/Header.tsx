@@ -53,7 +53,7 @@ export default function Header({ student }: { student: any }) {
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" className="relative h-10 w-10 rounded-full">
               <Avatar className="h-10 w-10">
-                <AvatarImage src="https://i.pravatar.cc/150?u=a042581f4e29026704d" alt={student?.name} />
+                <AvatarImage src={student?.avatarUrl} alt={student?.name} />
                 <AvatarFallback>
                   {getInitials(student?.name)}
                 </AvatarFallback>

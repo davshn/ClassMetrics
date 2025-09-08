@@ -1,3 +1,5 @@
+'use client';
+import { useEffect, useState } from 'react';
 import Header from '@/components/dashboard/Header';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { studentData } from '@/lib/data';
@@ -6,6 +8,22 @@ import { Switch } from '@/components/ui/switch';
 import { Separator } from '@/components/ui/separator';
 
 export default function SettingsPage() {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const isDarkMode = document.documentElement.classList.contains('dark');
+    setIsDark(isDarkMode);
+  }, []);
+
+  const toggleDarkMode = (checked: boolean) => {
+    setIsDark(checked);
+    if (checked) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  };
+
   return (
     <div className="min-h-screen w-full bg-background text-foreground">
       <Header student={studentData} />
@@ -24,7 +42,7 @@ export default function SettingsPage() {
                                 Enable or disable dark mode for the dashboard.
                             </span>
                         </Label>
-                        <Switch id="dark-mode" />
+                        <Switch id="dark-mode" checked={isDark} onCheckedChange={toggleDarkMode}/>
                     </div>
                     <Separator />
                     <div className="flex items-center justify-between space-x-2">
